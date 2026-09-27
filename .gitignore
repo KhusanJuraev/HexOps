@@ -1,0 +1,57 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node
+node_modules/
+test-results/
+playwright-report/
+dist/
+*.tsbuildinfo
+.vite/
+
+# Local data: evidence uploads, PDF jobs, transfer files, pre-import backups
+data/
+storage/
+uploads/
+backups/
+
+# Exports and database dumps (contain research data; never commit)
+*.hexops
+*.dump
+*.pgdump
+*.backup
+*.sql.gz
+*.sql
+*.db
+*.sqlite
+*.sqlite3
+
+# Browser/session material
+cookies.txt
+*.har
+session*.json
+storageState*.json
+
+# Test artifacts
+coverage/
+.coverage
+htmlcov/
+blob-report/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Logs
+*.log

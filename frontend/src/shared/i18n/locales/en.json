@@ -1,0 +1,819 @@
+{
+  "app": {
+    "name": "HexOps",
+    "tagline": "Private security research workspace"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "reports": "Reports",
+    "projects": "Projects",
+    "notes": "Notes",
+    "settings": "Settings",
+    "openMenu": "Open menu",
+    "main": "Main navigation",
+    "skipToContent": "Skip to main content",
+    "search": "Search",
+    "collapseSidebar": "Collapse sidebar",
+    "expandSidebar": "Expand sidebar"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signingIn": "Signing in…",
+    "signOut": "Sign out",
+    "username": "Username",
+    "password": "Password",
+    "invalid": "Incorrect username or password.",
+    "throttled": "Too many attempts. Try again in {{seconds}} s.",
+    "signedInAs": "Signed in as",
+    "signedOutOffline": "Signed out on this device. The server could not be reached to end the session."
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong.",
+    "retry": "Try again",
+    "reload": "Reload",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "theme": {
+    "label": "Appearance",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{name}}",
+    "range": "Period",
+    "lastMonths": "Last {{count}} months",
+    "overview": "Overview",
+    "activeProjects": "Active projects",
+    "ofProjects": "of {{count}} projects",
+    "reports": "Reports",
+    "notes": "Notes",
+    "bySeverity": "Findings by severity",
+    "byStatus": "Reports by status",
+    "overTime": "Findings over time",
+    "bounties": "Bounty earnings",
+    "recentActivity": "Recent activity",
+    "noReports": "No reports yet.",
+    "noReportsInRange": "No reports were created in this period.",
+    "noBounties": "No paid bounties in this period.",
+    "showData": "Show data as a table",
+    "category": "Category",
+    "count": "Count",
+    "month": "Month",
+    "countsSummary": "{{title}}: {{total}} in total. {{parts}}.",
+    "timelineSummary": "{{total}} reports created from {{from}} to {{to}}; the busiest month was {{peak}} with {{peakCount}}.",
+    "bountySummary": "Bounties paid in {{currency}}: {{total}} across {{count}} reports.",
+    "paidReports": "Paid reports: {{count}}",
+    "currencyNote": "Each currency is shown on its own; amounts in different currencies are never added together.",
+    "unpriced": "Paid reports without a recorded amount: {{count}} (not included above).",
+    "unpaidTitle": "Recorded, not marked Paid",
+    "unpaidReports": "Reports: {{count}}",
+    "unpaidHint": "Bounty amounts on BBP reports that are not marked Paid (all dates). They are not earnings: mark a report as Paid to count it in the month it was paid."
+  },
+  "modules": {
+    "dashboard": "An overview of your reports, projects and notes.",
+    "reports": "Write, organise and export security reports.",
+    "projects": "Group research work by target or engagement.",
+    "notes": "Quick research notes and findings."
+  },
+  "placeholder": {
+    "title": "Coming in a later stage",
+    "body": "This module has not been built yet. Nothing is stored here for now."
+  },
+  "settings": {
+    "account": "Account",
+    "appearanceHint": "System follows your device setting.",
+    "languageHint": "Interface language.",
+    "dataTitle": "Data",
+    "dataHint": "Export everything into one encrypted file, or import such a file (e.g. on a new computer).",
+    "dataOpen": "Export or import data"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "back": "Back to dashboard"
+  },
+  "connection": {
+    "status": "Server connection",
+    "checking": "Checking…",
+    "online": "Connected",
+    "offline": "Offline",
+    "database": "Database down",
+    "offlineTitle": "Can’t reach the HexOps server",
+    "offlineBody": "Check that the backend is running. HexOps retries automatically.",
+    "databaseTitle": "The database is unavailable",
+    "databaseBody": "The HexOps server is running but cannot reach PostgreSQL. Check that the database is running.",
+    "restored": "Connection restored"
+  },
+  "errors": {
+    "csrf": "Your security token is out of date. Reload the page and try again.",
+    "origin": "The request came from an untrusted address.",
+    "sessionExpired": "Your session has ended. Sign in again.",
+    "validation": "Please correct the highlighted fields.",
+    "pageFailed": "This page could not be displayed",
+    "pageFailedBody": "The rest of HexOps still works. Try again, or reload if HexOps was just updated.",
+    "sectionFailed": "This section could not be displayed.",
+    "codes": {
+      "invalid_status_transition": "This status change is not allowed from the current status.",
+      "invalid_status_correction": "Only the last status change can be undone.",
+      "paid_requires_bbp": "Only bug bounty (BBP) reports can be marked as paid.",
+      "project_has_reports": "This project still has reports. Delete or move them to another project first.",
+      "report_not_found": "The report no longer exists.",
+      "attachment_type_not_allowed": "This file type is not allowed. Use images (PNG, JPEG, GIF, WebP), PDF, text or source files.",
+      "attachment_content_mismatch": "The file content does not match its extension.",
+      "attachment_too_large": "The file is larger than the upload limit.",
+      "attachment_empty": "The file is empty.",
+      "attachment_limit": "This report already has the maximum number of evidence files.",
+      "attachment_file_missing": "The stored file is missing on the server.",
+      "attachment_not_found": "The evidence file no longer exists.",
+      "length_required": "The upload was sent without a size. Try again with a normal browser upload.",
+      "note_not_found": "The note no longer exists.",
+      "search_timeout": "The search took too long. Use more specific words.",
+      "pdf_source_not_found": "That report or note no longer exists.",
+      "pdf_too_large": "The PDF is too large.",
+      "pdf_unsupported": "This file is not a PDF.",
+      "pdf_empty": "The file is empty.",
+      "pdf_malformed": "The PDF is damaged or not a valid PDF.",
+      "pdf_encrypted": "The PDF is password-protected. Remove the password and try again.",
+      "pdf_too_many_pages": "The PDF has too many pages.",
+      "pdf_no_text": "No text found: this looks like a scanned PDF. OCR is not available yet, so it cannot be imported.",
+      "pdf_text_too_long": "The PDF has more text than a report or note can hold.",
+      "pdf_job_timeout": "The conversion took too long and was stopped.",
+      "pdf_job_interrupted": "The job was interrupted by a restart. Start it again.",
+      "pdf_export_failed": "The PDF could not be created.",
+      "pdf_import_failed": "The PDF could not be read.",
+      "pdf_renderer_missing": "The PDF renderer is not installed on the server (see README).",
+      "pdf_job_not_found": "This PDF job no longer exists.",
+      "pdf_job_not_ready": "The PDF is not ready yet.",
+      "pdf_job_expired": "The PDF has expired. Export it again.",
+      "pdf_queue_full": "Too many PDF jobs are waiting. Try again when they finish.",
+      "maintenance_in_progress": "A data export or import is running. Try again in a moment.",
+      "transfer_not_hexops": "This is not a .hexops archive.",
+      "transfer_wrong_passphrase": "The passphrase is wrong for this archive.",
+      "transfer_corrupt": "The archive is damaged or incomplete.",
+      "transfer_too_large": "The archive is too large.",
+      "transfer_too_many_entries": "The archive has too many entries.",
+      "transfer_unsafe_path": "The archive contains an unsafe file path and was refused.",
+      "transfer_duplicate_entry": "The archive contains a file twice.",
+      "transfer_missing_file": "A file is missing from the archive.",
+      "transfer_unexpected_file": "The archive contains files it does not list.",
+      "transfer_checksum_mismatch": "A file in the archive does not match its checksum.",
+      "transfer_duplicate_id": "The archive contains the same record twice.",
+      "transfer_broken_reference": "The archive has a record that points to a missing one.",
+      "transfer_invalid_data": "The archive contains a value HexOps cannot accept.",
+      "transfer_schema_mismatch": "The archive is from a different HexOps version. Update both installations to the same version.",
+      "transfer_unsupported_version": "This archive format is not supported by this HexOps version.",
+      "transfer_source_file_missing": "An evidence file is missing on disk, so the export was stopped.",
+      "transfer_source_file_changed": "An evidence file on disk does not match its checksum, so the export was stopped.",
+      "transfer_busy": "Another export or import is running.",
+      "transfer_confirmation_required": "Confirm that the current data may be replaced.",
+      "transfer_backup_failed": "The backup of the current data could not be verified; nothing was changed.",
+      "transfer_no_space": "There is not enough free disk space for this import.",
+      "transfer_archive_missing": "The uploaded archive is no longer available. Upload it again.",
+      "transfer_job_interrupted": "The job was interrupted by a restart; nothing was changed. Start it again.",
+      "transfer_export_failed": "The export failed.",
+      "transfer_check_failed": "The archive could not be checked.",
+      "transfer_apply_failed": "The import failed; the previous data was kept unchanged.",
+      "transfer_job_not_found": "This export or import no longer exists.",
+      "transfer_job_not_ready": "This step is not possible now.",
+      "transfer_job_expired": "The file has expired. Create the export again."
+    }
+  },
+  "validation": {
+    "required": "This field is required.",
+    "tooShort": "Must be at least {{min}} characters.",
+    "tooLong": "Must be at most {{max}} characters.",
+    "pattern": "Contains characters that are not allowed.",
+    "unexpected": "Unexpected field.",
+    "invalid": "This value is not valid.",
+    "username": "Use 3–64 characters: Latin letters, digits, “_”, “.” or “-”.",
+    "passwordMismatch": "Passwords do not match.",
+    "currentPasswordWrong": "The current password is incorrect.",
+    "passwordReused": "Choose a password different from the current one.",
+    "codes": {
+      "scope_value_whitespace": "Remove spaces at the start or end. Values are saved exactly as typed.",
+      "scope_value_control_chars": "Contains invisible control characters.",
+      "scope_invalid_domain": "Enter a domain such as example.com.",
+      "scope_invalid_wildcard": "Enter a wildcard such as *.example.com.",
+      "scope_invalid_url": "Enter a full URL starting with http:// or https://.",
+      "scope_invalid_ip": "Enter an IPv4 or IPv6 address.",
+      "scope_invalid_cidr": "Enter a range such as 10.0.0.0/24.",
+      "scope_cidr_host_bits": "The range must start at its network address, e.g. 10.0.0.0/24.",
+      "scope_duplicate": "This asset is already in the list.",
+      "date_out_of_range": "Choose a date between 1990 and 2100.",
+      "enum": "Choose one of the options.",
+      "too_long": "Too many items (maximum {{max_length}}).",
+      "cvss_vector_invalid": "Enter a CVSS 3.x or 4.0 vector, e.g. CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H.",
+      "bounty_incomplete": "Give both the amount and the currency, or neither.",
+      "bounty_requires_bbp": "A bounty can only be recorded on a bug bounty (BBP) report.",
+      "paid_requires_bbp": "A paid report must stay a bug bounty (BBP) report.",
+      "project_not_found": "Choose an existing project.",
+      "status_date_in_future": "The date cannot be in the future.",
+      "status_date_before_previous": "The date cannot be earlier than the previous step.",
+      "timezone_required": "Give the date with a time zone.",
+      "less_than_equal": "Must be at most {{le}}.",
+      "greater_than_equal": "Must be at least {{ge}}.",
+      "greater_than": "Must be greater than {{gt}}.",
+      "decimal_max_places": "Use at most {{decimal_places}} decimal places.",
+      "decimal_parsing": "Enter a number.",
+      "missing": "This field is required.",
+      "tag_invalid": "Tags use letters, digits, “-” and “_” (up to 32, no spaces).",
+      "range_reversed": "The start month is after the end month.",
+      "range_too_long": "Choose at most {{max}} months.",
+      "passphrase_too_short": "Use at least 12 characters.",
+      "username_unchanged": "This is already your username (letter case does not matter).",
+      "username_taken": "This username is taken."
+    }
+  },
+  "toast": {
+    "region": "Notifications",
+    "close": "Dismiss"
+  },
+  "empty": {
+    "notFoundBody": "The address may be mistyped, or the page may have moved."
+  },
+  "setup": {
+    "title": "Create the owner account",
+    "intro": "HexOps has no account yet. This will be the only account: there is no sign-up afterwards.",
+    "confirm": "Repeat password",
+    "passwordHint": "At least 12 characters. A passphrase of several words works well.",
+    "submit": "Create account",
+    "submitting": "Creating…",
+    "recovery": "If you forget the password, reset it on this computer with:",
+    "localOnly": "For safety, the first account can only be created on the computer that runs HexOps. Open HexOps there, or use the command line (python -m app.cli create-user)."
+  },
+  "security": {
+    "title": "Security",
+    "changePassword": "Change password",
+    "changeHint": "After the change you will be signed out on every device, including this one.",
+    "current": "Current password",
+    "new": "New password",
+    "confirm": "Repeat new password",
+    "show": "Show passwords",
+    "submit": "Change password",
+    "submitting": "Changing…",
+    "passwordChanged": "Password changed. Sign in with your new password."
+  },
+  "pagination": {
+    "label": "Pagination",
+    "range": "{{from}}–{{to}} of {{total}}",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "projects": {
+    "new": "New project",
+    "edit": "Edit project",
+    "search": "Search by name",
+    "searchPlaceholder": "Search projects…",
+    "filterType": "Type",
+    "filterStatus": "Status",
+    "allTypes": "All types",
+    "allStatuses": "All statuses",
+    "sortBy": "Sort by",
+    "clearFilters": "Clear filters",
+    "sort": {
+      "updated_at": "Last updated",
+      "created_at": "Date created",
+      "name": "Name",
+      "start_date": "Start date",
+      "status": "Status"
+    },
+    "order": {
+      "asc": "Ascending",
+      "desc": "Descending"
+    },
+    "columns": {
+      "name": "Name",
+      "type": "Type",
+      "status": "Status",
+      "startDate": "Start date",
+      "scope": "Assets",
+      "updated": "Updated"
+    },
+    "assetCount": "Assets: {{count}}",
+    "noStartDate": "—",
+    "type": {
+      "bounty_program": "Bounty program",
+      "pentest_client": "Pentest client",
+      "personal_research": "Personal research"
+    },
+    "status": {
+      "active": "Active",
+      "paused": "Paused",
+      "closed": "Closed"
+    },
+    "kind": {
+      "domain": "Domain",
+      "wildcard": "Wildcard domain",
+      "url": "URL",
+      "ip": "IP address",
+      "cidr": "IP range (CIDR)",
+      "other": "Other"
+    },
+    "empty": {
+      "title": "No projects yet",
+      "body": "Create a project for each bounty program, client or research target.",
+      "filteredTitle": "No matching projects",
+      "filteredBody": "Try other filters, or clear them."
+    },
+    "form": {
+      "name": "Name",
+      "type": "Type",
+      "status": "Status",
+      "startDate": "Start date",
+      "description": "Description",
+      "descriptionHint": "Plain text: rules of engagement, contacts, reminders.",
+      "scope": "In-scope assets",
+      "scopeHint": "Each entry is saved exactly as typed, in this order.",
+      "addScope": "Add asset",
+      "kind": "Kind",
+      "value": "Value",
+      "note": "Note (optional)",
+      "item": "Asset {{n}}",
+      "moveUp": "Move asset {{n}} up",
+      "moveDown": "Move asset {{n}} down",
+      "remove": "Remove asset {{n}}",
+      "noScope": "No assets yet.",
+      "create": "Create project",
+      "save": "Save changes",
+      "saving": "Saving…"
+    },
+    "detail": {
+      "description": "Description",
+      "noDescription": "No description.",
+      "scope": "Scope",
+      "noScope": "No in-scope assets recorded.",
+      "reports": "Reports",
+      "notes": "Notes",
+      "activity": "Activity",
+      "started": "Started {{date}}",
+      "updated": "Updated {{date}}",
+      "notFound": "Project not found",
+      "notFoundBody": "It may have been deleted.",
+      "backToList": "Back to projects"
+    },
+    "deleteDialog": {
+      "title": "Delete this project?",
+      "body": "“{{name}}” and its scope will be deleted. Linked notes are kept without a project. Its activity history is kept. This cannot be undone.",
+      "confirm": "Delete project"
+    },
+    "toast": {
+      "created": "Project created.",
+      "saved": "Changes saved.",
+      "deleted": "Project deleted."
+    },
+    "fields": {
+      "name": "name",
+      "type": "type",
+      "start_date": "start date",
+      "description": "description",
+      "scope": "scope"
+    }
+  },
+  "activity": {
+    "empty": "No activity yet.",
+    "by": "by {{actor}}",
+    "reportRef": "Report #{{id}}",
+    "project_created": "Project created",
+    "project_deleted": "Project deleted",
+    "report_created": "Report created",
+    "report_deleted": "Report “{{title}}” deleted",
+    "status_changed": "Status changed: {{from}} → {{to}}",
+    "status_corrected": "Status corrected: {{from}} → {{to}}",
+    "updated": "Updated: {{fields}}",
+    "attachment_added": "Evidence added: {{name}}",
+    "attachment_deleted": "Evidence removed: {{name}}",
+    "note_created": "Note created",
+    "note_updated": "Updated: {{fields}}",
+    "note_deleted": "Note “{{title}}” deleted",
+    "noteRef": "Note #{{id}}"
+  },
+  "reports": {
+    "new": "New report",
+    "edit": "Edit report",
+    "searchPlaceholder": "Search reports…",
+    "search": "Search by title",
+    "allProjects": "All projects",
+    "allTypes": "All types",
+    "allSeverities": "All severities",
+    "allStatuses": "All statuses",
+    "filterProject": "Project",
+    "filterType": "Type",
+    "filterSeverity": "Severity",
+    "filterStatus": "Status",
+    "sortBy": "Sort by",
+    "clearFilters": "Clear filters",
+    "sort": {
+      "updated_at": "Last updated",
+      "created_at": "Date created",
+      "submitted_at": "Date submitted",
+      "severity": "Severity",
+      "status": "Status",
+      "title": "Title"
+    },
+    "order": {
+      "asc": "Ascending",
+      "desc": "Descending"
+    },
+    "columns": {
+      "title": "Title",
+      "project": "Project",
+      "type": "Type",
+      "severity": "Severity",
+      "status": "Status",
+      "submitted": "Submitted",
+      "updated": "Updated"
+    },
+    "type": {
+      "cve": "CVE",
+      "bbp": "Bug bounty (BBP)",
+      "vdp": "VDP",
+      "pentest": "Pentest"
+    },
+    "severity": {
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low",
+      "info": "Info"
+    },
+    "status": {
+      "draft": "Draft",
+      "submitted": "Submitted",
+      "triaged": "Triaged",
+      "accepted": "Accepted",
+      "duplicate": "Duplicate",
+      "rejected": "Rejected",
+      "paid": "Paid"
+    },
+    "fields": {
+      "project_id": "project",
+      "title": "title",
+      "type": "type",
+      "severity": "severity",
+      "cvss_score": "CVSS score",
+      "cvss_vector": "CVSS vector",
+      "body_md": "body",
+      "bounty_amount": "bounty amount",
+      "bounty_currency": "currency"
+    },
+    "empty": {
+      "title": "No reports yet",
+      "body": "Write a report for each finding or engagement. Every report belongs to a project.",
+      "filteredTitle": "No matching reports",
+      "filteredBody": "Try other filters, or clear them.",
+      "noProjects": "Create a project first: every report belongs to one."
+    },
+    "form": {
+      "title": "Title",
+      "project": "Project",
+      "projectSearch": "Find a project",
+      "projectNone": "Choose a project…",
+      "type": "Type",
+      "severity": "Severity",
+      "severityHint": "Your own rating. It is never changed by the CVSS score.",
+      "cvssScore": "CVSS score (optional)",
+      "cvssVector": "CVSS vector (optional)",
+      "cvssSuggests": "CVSS {{score}} suggests {{rating}}.",
+      "cvssDiffers": "Your severity differs from the CVSS rating. Both are kept as entered.",
+      "body": "Report (Markdown)",
+      "bodyHint": "Markdown. Split view shows a live, safe preview.",
+      "bounty": "Bounty (optional)",
+      "bountyAmount": "Amount",
+      "bountyCurrency": "Currency (ISO code, e.g. USD)",
+      "bountyOnlyBbp": "Bounties can be recorded on bug bounty (BBP) reports.",
+      "create": "Create report",
+      "save": "Save changes",
+      "saving": "Saving…"
+    },
+    "detail": {
+      "project": "Project",
+      "cvss": "CVSS",
+      "bounty": "Bounty",
+      "timeline": "Timeline",
+      "created": "Created",
+      "body": "Report",
+      "noBody": "No text yet.",
+      "evidence": "Evidence",
+      "activity": "Activity",
+      "notFound": "Report not found",
+      "notFoundBody": "It may have been deleted.",
+      "backToList": "Back to reports",
+      "dates": {
+        "submitted_at": "Submitted",
+        "triaged_at": "Triaged",
+        "closed_at": "Closed",
+        "paid_at": "Paid"
+      }
+    },
+    "workflow": {
+      "title": "Status",
+      "current": "Current status: {{status}}",
+      "moveTo": "Mark as {{status}}",
+      "when": "When (optional)",
+      "whenHint": "Leave both empty to use the current time. Date DD/MM/YYYY, time HH:mm (24-hour), your local time.",
+      "final": "This is a final status.",
+      "undo": "Undo: back to {{status}}",
+      "undoTitle": "Undo the last status change?",
+      "undoBody": "The status goes back to “{{status}}” and the date of the undone step is cleared. The change is recorded in the history.",
+      "changed": "Status changed to {{status}}.",
+      "corrected": "Status set back to {{status}}."
+    },
+    "evidence": {
+      "upload": "Add evidence",
+      "uploading": "Uploading {{name}}…",
+      "hint": "Images (PNG, JPEG, GIF, WebP), PDF, text and source files up to {{size}} MB. Files are never opened or run by HexOps; downloads are always saved, not displayed.",
+      "empty": "No evidence yet.",
+      "download": "Download {{name}}",
+      "remove": "Remove {{name}}",
+      "removeTitle": "Remove this file?",
+      "removeBody": "“{{name}}” will be deleted from the server.",
+      "uploaded": "Uploaded {{name}}.",
+      "failed": "{{name}}: {{reason}}"
+    },
+    "deleteDialog": {
+      "title": "Delete this report?",
+      "body": "“{{name}}” and its {{count}} evidence file(s) will be deleted. The history is kept. This cannot be undone.",
+      "confirm": "Delete report"
+    },
+    "toast": {
+      "created": "Report created.",
+      "saved": "Changes saved.",
+      "deleted": "Report deleted."
+    },
+    "projectSection": {
+      "empty": "No reports for this project yet.",
+      "add": "New report for this project",
+      "viewAll": "View all {{count}} reports"
+    },
+    "createdFrom": "Created from",
+    "createdTo": "Created to"
+  },
+  "editor": {
+    "mode": "Editor view",
+    "preview": "Preview",
+    "empty": "Nothing to preview yet.",
+    "hint": "Markdown: # headings, **bold**, `code`, ```lang fences, | tables |, [links](https://…).",
+    "characters": "{{count}} / {{max}} characters",
+    "modes": {
+      "markdown": "Markdown",
+      "split": "Split",
+      "preview": "Preview"
+    },
+    "tabs": {
+      "edit": "Edit",
+      "preview": "Preview"
+    }
+  },
+  "unsaved": {
+    "title": "Leave without saving?",
+    "body": "You have changes that are not saved. If you leave now, they are lost.",
+    "stay": "Keep editing",
+    "leave": "Leave without saving"
+  },
+  "notes": {
+    "new": "New note",
+    "edit": "Edit note",
+    "search": "Search title and text",
+    "searchPlaceholder": "Search notes…",
+    "filterProject": "Project",
+    "allProjects": "All projects",
+    "filterTag": "Tag",
+    "addTagFilter": "Filter by tag…",
+    "removeTagFilter": "Remove tag filter {{tag}}",
+    "sortBy": "Sort by",
+    "clearFilters": "Clear filters",
+    "sort": {
+      "updated_at": "Last updated",
+      "created_at": "Date created",
+      "title": "Title"
+    },
+    "order": {
+      "asc": "Ascending",
+      "desc": "Descending"
+    },
+    "fields": {
+      "title": "title",
+      "body_md": "text",
+      "project_id": "project",
+      "tags": "tags"
+    },
+    "noProject": "No project",
+    "updated": "Updated {{date}}",
+    "empty": {
+      "title": "No notes yet",
+      "body": "Keep recon findings, cheat sheets and to-dos as Markdown notes.",
+      "filteredTitle": "No matching notes",
+      "filteredBody": "Try other filters, or clear them."
+    },
+    "form": {
+      "title": "Title",
+      "project": "Project (optional)",
+      "projectSearch": "Find a project",
+      "tags": "Tags",
+      "tagsHint": "Press Enter or comma to add. Letters, digits, “-” and “_”.",
+      "tagPlaceholder": "recon, todo…",
+      "removeTag": "Remove tag {{tag}}",
+      "body": "Note",
+      "create": "Create note",
+      "save": "Save changes",
+      "saving": "Saving…"
+    },
+    "detail": {
+      "body": "Note",
+      "noBody": "No text yet.",
+      "activity": "Activity",
+      "project": "Project",
+      "tags": "Tags",
+      "notFound": "Note not found",
+      "notFoundBody": "It may have been deleted.",
+      "backToList": "Back to notes"
+    },
+    "deleteDialog": {
+      "title": "Delete this note?",
+      "body": "“{{name}}” will be deleted. The history is kept. This cannot be undone.",
+      "confirm": "Delete note"
+    },
+    "toast": {
+      "created": "Note created.",
+      "saved": "Changes saved.",
+      "deleted": "Note deleted."
+    },
+    "projectSection": {
+      "empty": "No notes for this project yet.",
+      "add": "New note for this project",
+      "viewAll": "View all {{count}} notes"
+    }
+  },
+  "search": {
+    "description": "Find reports and notes by words in their title or text.",
+    "label": "Search for",
+    "placeholder": "Words, CVE-2024-1234, 10.0.0.5, example.com…",
+    "hint": "All words must match. Words match their forms in English and Russian; Uzbek apostrophes are optional. CVE ids, IPs, domains and URLs match anywhere in the text.",
+    "kind": "Look in",
+    "kinds": {
+      "all": "Reports and notes",
+      "report": "Reports",
+      "note": "Notes"
+    },
+    "tag": "Note tag",
+    "anyTag": "Any tag",
+    "startTitle": "Search your workspace",
+    "startBody": "Type a word, an identifier or a host to search every report and note.",
+    "noResults": "Nothing found",
+    "noResultsBody": "Try fewer or different words.",
+    "count": "Results: {{count}}"
+  },
+  "pdf": {
+    "failed": "The PDF job failed. Try again.",
+    "export": {
+      "button": "Export PDF",
+      "working": "Preparing PDF… {{progress}}%",
+      "download": "Download PDF",
+      "ready": "PDF ready to download."
+    },
+    "import": {
+      "open": "Import PDF",
+      "title": "Import a PDF",
+      "description": "Turn a text PDF into a Markdown draft, review it, then save it as a new report or note.",
+      "choose": "Choose a PDF",
+      "file": "PDF file",
+      "limits": "Up to {{mb}} MB and {{pages}} pages.",
+      "textOnly": "Only PDFs with a text layer. Scanned (image-only) PDFs need OCR, which is not available.",
+      "manualCorrection": "Complex tables, images and page layout may need manual correction.",
+      "neverOverwrites": "Nothing is saved until you choose to create a new report or note. Existing records are never changed.",
+      "submit": "Convert to Markdown",
+      "uploading": "Uploading…",
+      "working": "Converting… {{progress}}%",
+      "reviewTitle": "Pages read: {{pages}}. Review the draft before saving.",
+      "warnings": "What to check",
+      "draft": "Draft",
+      "draftTitle": "Title",
+      "draftBody": "Markdown",
+      "draftHint": "Edit freely. The next step shows the full form before anything is saved.",
+      "asReport": "Continue as new report",
+      "asNote": "Continue as new note",
+      "startOver": "Start over",
+      "fromDraft": "From an imported PDF. Review, then save.",
+      "pick": "Choose a PDF…",
+      "noFile": "No file chosen"
+    },
+    "warnings": {
+      "pdf_tables_detected": "Tables were converted to Markdown tables. Check merged or empty cells.",
+      "pdf_images_skipped": "Images were skipped. Attach screenshots as evidence if you need them.",
+      "pdf_pages_without_text": "Some pages have no text layer (scanned?) and were skipped."
+    }
+  },
+  "dates": {
+    "date": "Date",
+    "time": "Time",
+    "placeholder": "DD/MM/YYYY",
+    "timePlaceholder": "HH:mm",
+    "openCalendar": "Choose a date from the calendar",
+    "calendar": "Calendar",
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month",
+    "today": "Today",
+    "weekdays": [
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa",
+      "Su"
+    ],
+    "errors": {
+      "date_format": "Enter the date as DD/MM/YYYY, day first: 05/06/2026 is 5 June 2026.",
+      "date_invalid": "This date does not exist (check the day and month).",
+      "time_format": "Enter the time as HH:mm on a 24-hour clock, e.g. 09:30 or 18:05.",
+      "time_required": "Enter the time too (HH:mm).",
+      "date_required": "Enter the date too (DD/MM/YYYY)."
+    }
+  },
+  "transfer": {
+    "title": "Data export and import",
+    "description": "One encrypted .hexops file with all projects, reports, notes, history and evidence files.",
+    "current": "This installation: {{projects}} projects, {{reports}} reports, {{notes}} notes, {{files}} evidence files.",
+    "failed": "The export or import failed. Nothing was changed.",
+    "passphrase": "Passphrase",
+    "passphraseHint": "At least {{min}} characters. It is not stored anywhere; without it the file cannot be opened.",
+    "passphraseShort": "Use at least {{min}} characters.",
+    "passphraseRepeat": "Passphrase again",
+    "stage": {
+      "queued": "Waiting to start…",
+      "export": "Exporting… {{progress}}%",
+      "check": "Checking the archive… {{progress}}%",
+      "backup": "Backing up the current data… {{progress}}%",
+      "files": "Copying evidence files… {{progress}}%",
+      "database": "Replacing the records… {{progress}}%",
+      "validated": "Checked.",
+      "done": "Done."
+    },
+    "export": {
+      "title": "Export all data",
+      "body": "Creates an encrypted archive of every project, report (with status history and bounty), note, tag, history entry and evidence file. Your account and password are not included.",
+      "keepSafe": "Keep the passphrase somewhere safe. HexOps cannot recover it, and anyone who has both the file and the passphrase can read all your data.",
+      "submit": "Create encrypted export",
+      "ready": "The export is ready.",
+      "readyDetail": "{{size}}. Download it before {{until}}; after that the file is deleted from the server.",
+      "download": "Download .hexops file"
+    },
+    "import": {
+      "title": "Import from a .hexops file",
+      "replaces": "An import replaces all records and evidence here with the archive’s; nothing is merged.",
+      "backupFirst": "If this installation has data, a verified encrypted backup of it is made first (in data/backups), and it stays as it is if anything fails.",
+      "account": "Accounts are not in the archive: the records are attached to the account you are signed in with.",
+      "sameVersion": "The archive must come from the same HexOps version (database schema).",
+      "file": "Archive file",
+      "pick": "Choose a .hexops file…",
+      "noFile": "No file chosen",
+      "check": "Check archive",
+      "checkAgain": "Check again",
+      "startOver": "Start over",
+      "checked": "The archive is intact and complete.",
+      "source": "Created {{date}} by {{owner}} with HexOps {{version}}.",
+      "compare": "Records in the archive and here now",
+      "kind": "Records",
+      "inArchive": "In the archive",
+      "hereNow": "Here now",
+      "files": "{{count}} evidence files, {{size}}.",
+      "space": "Disk space needed: {{needed}} (free: {{free}}).",
+      "populatedTitle": "This installation already has data.",
+      "populatedBody": "Importing replaces all of it. A verified backup is made first and kept in data/backups.",
+      "understand": "I understand that all current records and evidence files will be replaced.",
+      "confirmTitle": "Replace all data?",
+      "confirmBody": "Every current record and evidence file is replaced by the archive’s. A verified backup is made first.",
+      "replace": "Replace all data",
+      "apply": "Import",
+      "done": "Import finished. All pages now show the imported data.",
+      "backupKept": "The previous data was backed up to {{name}} (encrypted with the same passphrase).",
+      "another": "Import another file"
+    },
+    "kinds": {
+      "projects": "Projects",
+      "project_scope_items": "Scope entries",
+      "reports": "Reports",
+      "report_attachments": "Evidence files",
+      "notes": "Notes",
+      "tags": "Tags",
+      "activity_logs": "History entries"
+    }
+  },
+  "account": {
+    "hint": "Your login name. Records are linked to your account, not to the name.",
+    "current": "Current username:",
+    "newUsername": "New username",
+    "usernameRules": "3–64 characters: letters, digits, “.”, “_” and “-”. Letter case does not matter.",
+    "changeUsername": "Change username",
+    "signOutNote": "After saving you are signed out on every device; sign in with the new username and your current password.",
+    "save": "Save username",
+    "saving": "Saving…",
+    "usernameChanged": "Username changed. Sign in with the new username and your current password."
+  }
+}

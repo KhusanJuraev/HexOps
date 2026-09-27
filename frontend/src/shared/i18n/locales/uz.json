@@ -1,0 +1,819 @@
+{
+  "app": {
+    "name": "HexOps",
+    "tagline": "Xavfsizlik tadqiqotlari uchun shaxsiy ish maydoni"
+  },
+  "nav": {
+    "dashboard": "Umumiy koʻrinish",
+    "reports": "Hisobotlar",
+    "projects": "Loyihalar",
+    "notes": "Qaydlar",
+    "settings": "Sozlamalar",
+    "openMenu": "Menyuni ochish",
+    "main": "Asosiy navigatsiya",
+    "skipToContent": "Asosiy mazmunga oʻtish",
+    "search": "Qidiruv",
+    "collapseSidebar": "Yon panelni yigʻish",
+    "expandSidebar": "Yon panelni yoyish"
+  },
+  "auth": {
+    "signIn": "Kirish",
+    "signingIn": "Kirilmoqda…",
+    "signOut": "Chiqish",
+    "username": "Foydalanuvchi nomi",
+    "password": "Parol",
+    "invalid": "Foydalanuvchi nomi yoki parol notoʻgʻri.",
+    "throttled": "Urinishlar juda koʻp. {{seconds}} soniyadan soʻng qayta urinib koʻring.",
+    "signedInAs": "Tizimga kirgan",
+    "signedOutOffline": "Bu qurilmada tizimdan chiqildi. Sessiyani yakunlash uchun serverga ulanib boʻlmadi."
+  },
+  "common": {
+    "loading": "Yuklanmoqda…",
+    "error": "Xatolik yuz berdi.",
+    "retry": "Qayta urinish",
+    "reload": "Yangilash",
+    "cancel": "Bekor qilish",
+    "edit": "Tahrirlash",
+    "delete": "Oʻchirish"
+  },
+  "theme": {
+    "label": "Koʻrinish",
+    "light": "Yorugʻ",
+    "dark": "Qorongʻi",
+    "system": "Tizim boʻyicha"
+  },
+  "language": {
+    "label": "Til"
+  },
+  "dashboard": {
+    "welcome": "Xush kelibsiz, {{name}}",
+    "range": "Davr",
+    "lastMonths": "Oxirgi {{count}} oy",
+    "overview": "Umumiy holat",
+    "activeProjects": "Faol loyihalar",
+    "ofProjects": "jami loyihalar: {{count}}",
+    "reports": "Hisobotlar",
+    "notes": "Qaydlar",
+    "bySeverity": "Topilmalar jiddiylik boʻyicha",
+    "byStatus": "Hisobotlar holat boʻyicha",
+    "overTime": "Topilmalar vaqt boʻyicha",
+    "bounties": "Mukofot daromadi",
+    "recentActivity": "Soʻnggi harakatlar",
+    "noReports": "Hali hisobotlar yoʻq.",
+    "noReportsInRange": "Bu davrda hisobot yaratilmagan.",
+    "noBounties": "Bu davrda toʻlangan mukofot yoʻq.",
+    "showData": "Maʼlumotni jadval koʻrinishida koʻrsatish",
+    "category": "Toifa",
+    "count": "Soni",
+    "month": "Oy",
+    "countsSummary": "{{title}}: jami {{total}}. {{parts}}.",
+    "timelineSummary": "{{from}} dan {{to}} gacha {{total}} ta hisobot yaratildi; eng koʻp {{peak}} da ({{peakCount}}).",
+    "bountySummary": "{{currency}} dagi mukofotlar: {{total}}, {{count}} ta hisobot.",
+    "paidReports": "Toʻlangan hisobotlar: {{count}}",
+    "currencyNote": "Har bir valyuta alohida koʻrsatiladi; turli valyutadagi summalar hech qachon qoʻshilmaydi.",
+    "unpriced": "Summasi kiritilmagan toʻlangan hisobotlar: {{count}} (yuqorida hisobga olinmagan).",
+    "unpaidTitle": "Kiritilgan, lekin «Toʻlangan» deb belgilanmagan",
+    "unpaidReports": "Hisobotlar: {{count}}",
+    "unpaidHint": "«Toʻlangan» deb belgilanmagan BBP hisobotlaridagi mukofot summalari (barcha sanalar). Bu daromad emas: hisobotni «Toʻlangan» deb belgilang, u toʻlangan oyda hisobga olinadi."
+  },
+  "modules": {
+    "dashboard": "Hisobotlar, loyihalar va qaydlar boʻyicha umumiy maʼlumot.",
+    "reports": "Xavfsizlik hisobotlarini yozish, tartiblash va eksport qilish.",
+    "projects": "Tadqiqotlarni nishon yoki loyiha boʻyicha guruhlash.",
+    "notes": "Tezkor qaydlar va topilmalar."
+  },
+  "placeholder": {
+    "title": "Keyingi bosqichda qoʻshiladi",
+    "body": "Bu boʻlim hali ishlab chiqilmagan. Hozircha bu yerda hech narsa saqlanmaydi."
+  },
+  "settings": {
+    "account": "Hisob",
+    "appearanceHint": "“Tizim boʻyicha” qurilma sozlamasiga amal qiladi.",
+    "languageHint": "Interfeys tili.",
+    "dataTitle": "Maʼlumotlar",
+    "dataHint": "Hammasini bitta shifrlangan faylga eksport qiling yoki shunday faylni import qiling (masalan, yangi kompyuterda).",
+    "dataOpen": "Maʼlumotlarni eksport yoki import qilish"
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "back": "Umumiy koʻrinishga qaytish"
+  },
+  "connection": {
+    "status": "Server bilan aloqa",
+    "checking": "Tekshirilmoqda…",
+    "online": "Ulangan",
+    "offline": "Aloqa yoʻq",
+    "database": "Baza ishlamayapti",
+    "offlineTitle": "HexOps serveriga ulanib boʻlmadi",
+    "offlineBody": "Backend ishga tushirilganini tekshiring. HexOps avtomatik qayta urinadi.",
+    "databaseTitle": "Maʼlumotlar bazasi mavjud emas",
+    "databaseBody": "HexOps serveri ishlayapti, lekin PostgreSQLga ulana olmayapti. Maʼlumotlar bazasi ishlayotganini tekshiring.",
+    "restored": "Aloqa tiklandi"
+  },
+  "errors": {
+    "csrf": "Xavfsizlik tokeni eskirgan. Sahifani yangilab, qayta urinib koʻring.",
+    "origin": "Soʻrov ishonchsiz manzildan yuborildi.",
+    "sessionExpired": "Sessiya tugadi. Qaytadan kiring.",
+    "validation": "Belgilangan maydonlarni tuzating.",
+    "pageFailed": "Bu sahifani koʻrsatib boʻlmadi",
+    "pageFailedBody": "HexOpsning boshqa boʻlimlari ishlayapti. Qayta urinib koʻring yoki HexOps yangilangan boʻlsa, sahifani yangilang.",
+    "sectionFailed": "Bu boʻlimni koʻrsatib boʻlmadi.",
+    "codes": {
+      "invalid_status_transition": "Joriy holatdan bunday oʻtish mumkin emas.",
+      "invalid_status_correction": "Faqat oxirgi holat oʻzgarishini bekor qilish mumkin.",
+      "paid_requires_bbp": "Faqat bug bounty (BBP) hisobotini toʻlangan deb belgilash mumkin.",
+      "project_has_reports": "Bu loyihada hisobotlar bor. Avval ularni oʻchiring yoki boshqa loyihaga koʻchiring.",
+      "report_not_found": "Hisobot endi mavjud emas.",
+      "attachment_type_not_allowed": "Bu turdagi faylga ruxsat yoʻq. Rasm (PNG, JPEG, GIF, WebP), PDF, matn yoki manba kod fayllaridan foydalaning.",
+      "attachment_content_mismatch": "Fayl mazmuni uning kengaytmasiga mos emas.",
+      "attachment_too_large": "Fayl ruxsat etilgan hajmdan katta.",
+      "attachment_empty": "Fayl boʻsh.",
+      "attachment_limit": "Bu hisobotda dalil fayllari soni maksimal darajada.",
+      "attachment_file_missing": "Saqlangan fayl serverda topilmadi.",
+      "attachment_not_found": "Dalil fayli endi mavjud emas.",
+      "length_required": "Fayl hajmi koʻrsatilmasdan yuborildi. Brauzer orqali qayta yuklang.",
+      "note_not_found": "Qayd endi mavjud emas.",
+      "search_timeout": "Qidiruv juda uzoq davom etdi. Aniqroq soʻzlardan foydalaning.",
+      "pdf_source_not_found": "Bu hisobot yoki qayd endi mavjud emas.",
+      "pdf_too_large": "PDF juda katta.",
+      "pdf_unsupported": "Bu fayl PDF emas.",
+      "pdf_empty": "Fayl boʻsh.",
+      "pdf_malformed": "PDF buzilgan yoki yaroqsiz.",
+      "pdf_encrypted": "PDF parol bilan himoyalangan. Parolni olib tashlab, qayta urinib koʻring.",
+      "pdf_too_many_pages": "PDFda sahifalar juda koʻp.",
+      "pdf_no_text": "Matn topilmadi: bu skanerlangan PDFga oʻxshaydi. OCR hozircha mavjud emas, shuning uchun import qilib boʻlmaydi.",
+      "pdf_text_too_long": "PDFdagi matn hisobot yoki qayd sigʻdira oladiganidan koʻp.",
+      "pdf_job_timeout": "Aylantirish juda uzoq davom etdi va toʻxtatildi.",
+      "pdf_job_interrupted": "Vazifa qayta ishga tushirish sababli toʻxtab qoldi. Uni qaytadan boshlang.",
+      "pdf_export_failed": "PDF yaratib boʻlmadi.",
+      "pdf_import_failed": "PDFni oʻqib boʻlmadi.",
+      "pdf_renderer_missing": "Serverda PDF chizish vositasi oʻrnatilmagan (READMEga qarang).",
+      "pdf_job_not_found": "Bu PDF vazifasi endi mavjud emas.",
+      "pdf_job_not_ready": "PDF hali tayyor emas.",
+      "pdf_job_expired": "PDF muddati tugagan. Uni qayta eksport qiling.",
+      "pdf_queue_full": "Navbatda PDF vazifalari juda koʻp. Ular tugagach qayta urinib koʻring.",
+      "maintenance_in_progress": "Maʼlumotlar eksporti yoki importi ketmoqda. Birozdan keyin qayta urinib koʻring.",
+      "transfer_not_hexops": "Bu .hexops arxivi emas.",
+      "transfer_wrong_passphrase": "Bu arxiv uchun parol iborasi notoʻgʻri.",
+      "transfer_corrupt": "Arxiv buzilgan yoki toʻliq emas.",
+      "transfer_too_large": "Arxiv juda katta.",
+      "transfer_too_many_entries": "Arxivda yozuvlar juda koʻp.",
+      "transfer_unsafe_path": "Arxivda xavfli fayl yoʻli bor, u rad etildi.",
+      "transfer_duplicate_entry": "Arxivda bitta fayl ikki marta bor.",
+      "transfer_missing_file": "Arxivda fayl yetishmayapti.",
+      "transfer_unexpected_file": "Arxivda roʻyxatida yoʻq fayllar bor.",
+      "transfer_checksum_mismatch": "Arxivdagi fayl nazorat yigʻindisiga mos emas.",
+      "transfer_duplicate_id": "Arxivda bitta yozuv ikki marta bor.",
+      "transfer_broken_reference": "Arxivda mavjud boʻlmagan yozuvga ishora qiluvchi yozuv bor.",
+      "transfer_invalid_data": "Arxivda HexOps qabul qila olmaydigan qiymat bor.",
+      "transfer_schema_mismatch": "Arxiv HexOps’ning boshqa versiyasidan. Ikkala oʻrnatmani bir xil versiyaga yangilang.",
+      "transfer_unsupported_version": "Bu arxiv formati HexOps’ning ushbu versiyasida qoʻllanmaydi.",
+      "transfer_source_file_missing": "Dalil fayli diskda yoʻq, shuning uchun eksport toʻxtatildi.",
+      "transfer_source_file_changed": "Diskdagi dalil fayli nazorat yigʻindisiga mos emas, shuning uchun eksport toʻxtatildi.",
+      "transfer_busy": "Boshqa eksport yoki import ketmoqda.",
+      "transfer_confirmation_required": "Joriy maʼlumotlarni almashtirishga rozilik bering.",
+      "transfer_backup_failed": "Joriy maʼlumotlar zaxirasini tekshirib boʻlmadi; hech narsa oʻzgarmadi.",
+      "transfer_no_space": "Bu import uchun diskda boʻsh joy yetarli emas.",
+      "transfer_archive_missing": "Yuklangan arxiv endi mavjud emas. Uni qayta yuklang.",
+      "transfer_job_interrupted": "Vazifa qayta ishga tushirish sababli toʻxtadi; hech narsa oʻzgarmadi. Uni qaytadan boshlang.",
+      "transfer_export_failed": "Eksport bajarilmadi.",
+      "transfer_check_failed": "Arxivni tekshirib boʻlmadi.",
+      "transfer_apply_failed": "Import bajarilmadi; avvalgi maʼlumotlar oʻzgarishsiz saqlandi.",
+      "transfer_job_not_found": "Bu eksport yoki import endi mavjud emas.",
+      "transfer_job_not_ready": "Bu qadam hozir mumkin emas.",
+      "transfer_job_expired": "Fayl muddati tugagan. Eksportni qaytadan yarating."
+    }
+  },
+  "validation": {
+    "required": "Bu maydon toʻldirilishi shart.",
+    "tooShort": "Kamida {{min}} ta belgi boʻlishi kerak.",
+    "tooLong": "Koʻpi bilan {{max}} ta belgi boʻlishi mumkin.",
+    "pattern": "Ruxsat etilmagan belgilar bor.",
+    "unexpected": "Kutilmagan maydon.",
+    "invalid": "Qiymat notoʻgʻri.",
+    "username": "3–64 ta belgi: lotin harflari, raqamlar, “_”, “.” yoki “-”.",
+    "passwordMismatch": "Parollar mos kelmadi.",
+    "currentPasswordWrong": "Joriy parol notoʻgʻri.",
+    "passwordReused": "Yangi parol joriy paroldan farq qilishi kerak.",
+    "codes": {
+      "scope_value_whitespace": "Boshidagi yoki oxiridagi boʻsh joylarni olib tashlang. Qiymatlar aynan kiritilgandek saqlanadi.",
+      "scope_value_control_chars": "Koʻrinmas boshqaruv belgilari bor.",
+      "scope_invalid_domain": "Domen kiriting, masalan example.com.",
+      "scope_invalid_wildcard": "*.example.com koʻrinishidagi niqob kiriting.",
+      "scope_invalid_url": "http:// yoki https:// bilan boshlanadigan toʻliq URL kiriting.",
+      "scope_invalid_ip": "IPv4 yoki IPv6 manzil kiriting.",
+      "scope_invalid_cidr": "Diapazon kiriting, masalan 10.0.0.0/24.",
+      "scope_cidr_host_bits": "Diapazon tarmoq manzilidan boshlanishi kerak, masalan 10.0.0.0/24.",
+      "scope_duplicate": "Bu aktiv roʻyxatda allaqachon bor.",
+      "date_out_of_range": "1990–2100 yillar oraligʻidagi sanani tanlang.",
+      "enum": "Variantlardan birini tanlang.",
+      "too_long": "Elementlar juda koʻp (koʻpi bilan {{max_length}} ta).",
+      "cvss_vector_invalid": "CVSS 3.x yoki 4.0 vektorini kiriting, masalan CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H.",
+      "bounty_incomplete": "Summa va valyutani birga kiriting yoki ikkalasini ham boʻsh qoldiring.",
+      "bounty_requires_bbp": "Mukofot faqat bug bounty (BBP) hisobotida qayd etiladi.",
+      "paid_requires_bbp": "Toʻlangan hisobot bug bounty (BBP) turida qolishi kerak.",
+      "project_not_found": "Mavjud loyihani tanlang.",
+      "status_date_in_future": "Sana kelajakda boʻlishi mumkin emas.",
+      "status_date_before_previous": "Sana oldingi bosqichdan erta boʻlishi mumkin emas.",
+      "timezone_required": "Sanani vaqt mintaqasi bilan kiriting.",
+      "less_than_equal": "Koʻpi bilan {{le}} boʻlishi kerak.",
+      "greater_than_equal": "Kamida {{ge}} boʻlishi kerak.",
+      "greater_than": "{{gt}} dan katta boʻlishi kerak.",
+      "decimal_max_places": "Verguldan keyin koʻpi bilan {{decimal_places}} ta raqam.",
+      "decimal_parsing": "Son kiriting.",
+      "missing": "Bu maydon toʻldirilishi shart.",
+      "tag_invalid": "Teglar harflar, raqamlar, “-” va “_” dan iborat (32 tagacha, boʻsh joysiz).",
+      "range_reversed": "Boshlanish oyi tugash oyidan keyin.",
+      "range_too_long": "Koʻpi bilan {{max}} oy tanlang.",
+      "passphrase_too_short": "Kamida 12 belgi ishlating.",
+      "username_unchanged": "Bu allaqachon sizning foydalanuvchi nomingiz (katta-kichik harf farqi yoʻq).",
+      "username_taken": "Bu foydalanuvchi nomi band."
+    }
+  },
+  "toast": {
+    "region": "Bildirishnomalar",
+    "close": "Yopish"
+  },
+  "empty": {
+    "notFoundBody": "Manzil xato yozilgan yoki sahifa koʻchirilgan boʻlishi mumkin."
+  },
+  "setup": {
+    "title": "Egasining hisobini yaratish",
+    "intro": "HexOpsda hali hisob yoʻq. Bu yagona hisob boʻladi: keyin roʻyxatdan oʻtish imkoni yoʻq.",
+    "confirm": "Parolni takrorlang",
+    "passwordHint": "Kamida 12 ta belgi. Bir necha soʻzdan iborat ibora yaxshi tanlov.",
+    "submit": "Hisob yaratish",
+    "submitting": "Yaratilmoqda…",
+    "recovery": "Parolni unutsangiz, uni shu kompyuterda quyidagi buyruq bilan tiklang:",
+    "localOnly": "Xavfsizlik uchun birinchi hisobni faqat HexOps ishlayotgan kompyuterda yaratish mumkin. HexOpsni oʻsha kompyuterda oching yoki buyruq qatoridan foydalaning (python -m app.cli create-user)."
+  },
+  "security": {
+    "title": "Xavfsizlik",
+    "changePassword": "Parolni almashtirish",
+    "changeHint": "Almashtirilgandan soʻng barcha qurilmalarda, jumladan shu qurilmada ham tizimdan chiqasiz.",
+    "current": "Joriy parol",
+    "new": "Yangi parol",
+    "confirm": "Yangi parolni takrorlang",
+    "show": "Parollarni koʻrsatish",
+    "submit": "Parolni almashtirish",
+    "submitting": "Almashtirilmoqda…",
+    "passwordChanged": "Parol almashtirildi. Yangi parol bilan kiring."
+  },
+  "pagination": {
+    "label": "Sahifalar",
+    "range": "{{total}} tadan {{from}}–{{to}}",
+    "previous": "Oldingi",
+    "next": "Keyingi"
+  },
+  "projects": {
+    "new": "Yangi loyiha",
+    "edit": "Loyihani tahrirlash",
+    "search": "Nomi boʻyicha qidirish",
+    "searchPlaceholder": "Loyihalarni qidirish…",
+    "filterType": "Turi",
+    "filterStatus": "Holati",
+    "allTypes": "Barcha turlar",
+    "allStatuses": "Barcha holatlar",
+    "sortBy": "Saralash",
+    "clearFilters": "Filtrlarni tozalash",
+    "sort": {
+      "updated_at": "Oxirgi oʻzgarish",
+      "created_at": "Yaratilgan sana",
+      "name": "Nomi",
+      "start_date": "Boshlanish sanasi",
+      "status": "Holati"
+    },
+    "order": {
+      "asc": "Oʻsish boʻyicha",
+      "desc": "Kamayish boʻyicha"
+    },
+    "columns": {
+      "name": "Nomi",
+      "type": "Turi",
+      "status": "Holati",
+      "startDate": "Boshlanish sanasi",
+      "scope": "Aktivlar",
+      "updated": "Oʻzgartirilgan"
+    },
+    "assetCount": "Aktivlar: {{count}}",
+    "noStartDate": "—",
+    "type": {
+      "bounty_program": "Bug bounty dasturi",
+      "pentest_client": "Pentest mijozi",
+      "personal_research": "Shaxsiy tadqiqot"
+    },
+    "status": {
+      "active": "Faol",
+      "paused": "Toʻxtatilgan",
+      "closed": "Yopilgan"
+    },
+    "kind": {
+      "domain": "Domen",
+      "wildcard": "Domen niqobi",
+      "url": "URL",
+      "ip": "IP manzil",
+      "cidr": "IP diapazon (CIDR)",
+      "other": "Boshqa"
+    },
+    "empty": {
+      "title": "Hali loyihalar yoʻq",
+      "body": "Har bir bounty dasturi, mijoz yoki tadqiqot obyekti uchun loyiha yarating.",
+      "filteredTitle": "Mos loyihalar topilmadi",
+      "filteredBody": "Boshqa filtrlarni tanlang yoki ularni tozalang."
+    },
+    "form": {
+      "name": "Nomi",
+      "type": "Turi",
+      "status": "Holati",
+      "startDate": "Boshlanish sanasi",
+      "description": "Tavsif",
+      "descriptionHint": "Oddiy matn: qoidalar, kontaktlar, eslatmalar.",
+      "scope": "Scope ichidagi aktivlar",
+      "scopeHint": "Har bir yozuv aynan kiritilgandek va shu tartibda saqlanadi.",
+      "addScope": "Aktiv qoʻshish",
+      "kind": "Turi",
+      "value": "Qiymat",
+      "note": "Izoh (ixtiyoriy)",
+      "item": "{{n}}-aktiv",
+      "moveUp": "{{n}}-aktivni yuqoriga surish",
+      "moveDown": "{{n}}-aktivni pastga surish",
+      "remove": "{{n}}-aktivni olib tashlash",
+      "noScope": "Hali aktivlar yoʻq.",
+      "create": "Loyiha yaratish",
+      "save": "Oʻzgarishlarni saqlash",
+      "saving": "Saqlanmoqda…"
+    },
+    "detail": {
+      "description": "Tavsif",
+      "noDescription": "Tavsif yoʻq.",
+      "scope": "Scope",
+      "noScope": "Scope ichidagi aktivlar kiritilmagan.",
+      "reports": "Hisobotlar",
+      "notes": "Qaydlar",
+      "activity": "Harakatlar tarixi",
+      "started": "Boshlangan: {{date}}",
+      "updated": "Oʻzgartirilgan: {{date}}",
+      "notFound": "Loyiha topilmadi",
+      "notFoundBody": "Ehtimol, u oʻchirilgan.",
+      "backToList": "Loyihalar roʻyxatiga qaytish"
+    },
+    "deleteDialog": {
+      "title": "Bu loyiha oʻchirilsinmi?",
+      "body": "“{{name}}” loyihasi va uning scope’i oʻchiriladi. Bogʻlangan qaydlar loyihasiz saqlanib qoladi. Harakatlar tarixi saqlanib qoladi. Bu amalni qaytarib boʻlmaydi.",
+      "confirm": "Loyihani oʻchirish"
+    },
+    "toast": {
+      "created": "Loyiha yaratildi.",
+      "saved": "Oʻzgarishlar saqlandi.",
+      "deleted": "Loyiha oʻchirildi."
+    },
+    "fields": {
+      "name": "nomi",
+      "type": "turi",
+      "start_date": "boshlanish sanasi",
+      "description": "tavsif",
+      "scope": "scope"
+    }
+  },
+  "activity": {
+    "empty": "Hali harakatlar yoʻq.",
+    "by": "— {{actor}}",
+    "reportRef": "Hisobot #{{id}}",
+    "project_created": "Loyiha yaratildi",
+    "project_deleted": "Loyiha oʻchirildi",
+    "report_created": "Hisobot yaratildi",
+    "report_deleted": "“{{title}}” hisoboti oʻchirildi",
+    "status_changed": "Holat oʻzgardi: {{from}} → {{to}}",
+    "status_corrected": "Holat tuzatildi: {{from}} → {{to}}",
+    "updated": "Oʻzgartirildi: {{fields}}",
+    "attachment_added": "Dalil qoʻshildi: {{name}}",
+    "attachment_deleted": "Dalil olib tashlandi: {{name}}",
+    "note_created": "Qayd yaratildi",
+    "note_updated": "Oʻzgartirildi: {{fields}}",
+    "note_deleted": "“{{title}}” qaydi oʻchirildi",
+    "noteRef": "Qayd #{{id}}"
+  },
+  "reports": {
+    "new": "Yangi hisobot",
+    "edit": "Hisobotni tahrirlash",
+    "searchPlaceholder": "Hisobotlarni qidirish…",
+    "search": "Sarlavha boʻyicha qidirish",
+    "allProjects": "Barcha loyihalar",
+    "allTypes": "Barcha turlar",
+    "allSeverities": "Barcha darajalar",
+    "allStatuses": "Barcha holatlar",
+    "filterProject": "Loyiha",
+    "filterType": "Turi",
+    "filterSeverity": "Jiddiylik",
+    "filterStatus": "Holati",
+    "sortBy": "Saralash",
+    "clearFilters": "Filtrlarni tozalash",
+    "sort": {
+      "updated_at": "Oxirgi oʻzgarish",
+      "created_at": "Yaratilgan sana",
+      "submitted_at": "Yuborilgan sana",
+      "severity": "Jiddiylik",
+      "status": "Holati",
+      "title": "Sarlavha"
+    },
+    "order": {
+      "asc": "Oʻsish boʻyicha",
+      "desc": "Kamayish boʻyicha"
+    },
+    "columns": {
+      "title": "Sarlavha",
+      "project": "Loyiha",
+      "type": "Turi",
+      "severity": "Jiddiylik",
+      "status": "Holati",
+      "submitted": "Yuborilgan",
+      "updated": "Oʻzgartirilgan"
+    },
+    "type": {
+      "cve": "CVE",
+      "bbp": "Bug bounty (BBP)",
+      "vdp": "VDP",
+      "pentest": "Pentest"
+    },
+    "severity": {
+      "critical": "Kritik",
+      "high": "Yuqori",
+      "medium": "Oʻrta",
+      "low": "Past",
+      "info": "Maʼlumot"
+    },
+    "status": {
+      "draft": "Qoralama",
+      "submitted": "Yuborilgan",
+      "triaged": "Koʻrib chiqilmoqda",
+      "accepted": "Qabul qilingan",
+      "duplicate": "Dublikat",
+      "rejected": "Rad etilgan",
+      "paid": "Toʻlangan"
+    },
+    "fields": {
+      "project_id": "loyiha",
+      "title": "sarlavha",
+      "type": "turi",
+      "severity": "jiddiylik",
+      "cvss_score": "CVSS bali",
+      "cvss_vector": "CVSS vektori",
+      "body_md": "matn",
+      "bounty_amount": "mukofot summasi",
+      "bounty_currency": "valyuta"
+    },
+    "empty": {
+      "title": "Hali hisobotlar yoʻq",
+      "body": "Har bir topilma yoki ish uchun hisobot yozing. Har bir hisobot biror loyihaga tegishli.",
+      "filteredTitle": "Mos hisobotlar topilmadi",
+      "filteredBody": "Boshqa filtrlarni tanlang yoki ularni tozalang.",
+      "noProjects": "Avval loyiha yarating: har bir hisobot loyihaga tegishli."
+    },
+    "form": {
+      "title": "Sarlavha",
+      "project": "Loyiha",
+      "projectSearch": "Loyihani topish",
+      "projectNone": "Loyihani tanlang…",
+      "type": "Turi",
+      "severity": "Jiddiylik",
+      "severityHint": "Sizning oʻz bahoingiz. CVSS bali uni hech qachon oʻzgartirmaydi.",
+      "cvssScore": "CVSS bali (ixtiyoriy)",
+      "cvssVector": "CVSS vektori (ixtiyoriy)",
+      "cvssSuggests": "CVSS {{score}} “{{rating}}” darajasiga mos.",
+      "cvssDiffers": "Siz tanlagan jiddiylik CVSS darajasidan farq qiladi. Ikkalasi ham kiritilgandek saqlanadi.",
+      "body": "Hisobot (Markdown)",
+      "bodyHint": "Markdown. “Yonma-yon” rejimida xavfsiz jonli koʻrinish chiqadi.",
+      "bounty": "Mukofot (ixtiyoriy)",
+      "bountyAmount": "Summa",
+      "bountyCurrency": "Valyuta (ISO kodi, masalan USD)",
+      "bountyOnlyBbp": "Mukofot bug bounty (BBP) hisobotlari uchun qayd etiladi.",
+      "create": "Hisobot yaratish",
+      "save": "Oʻzgarishlarni saqlash",
+      "saving": "Saqlanmoqda…"
+    },
+    "detail": {
+      "project": "Loyiha",
+      "cvss": "CVSS",
+      "bounty": "Mukofot",
+      "timeline": "Xronologiya",
+      "created": "Yaratilgan",
+      "body": "Hisobot",
+      "noBody": "Hali matn yoʻq.",
+      "evidence": "Dalillar",
+      "activity": "Harakatlar tarixi",
+      "notFound": "Hisobot topilmadi",
+      "notFoundBody": "Ehtimol, u oʻchirilgan.",
+      "backToList": "Hisobotlar roʻyxatiga qaytish",
+      "dates": {
+        "submitted_at": "Yuborilgan",
+        "triaged_at": "Koʻrib chiqila boshlangan",
+        "closed_at": "Yopilgan",
+        "paid_at": "Toʻlangan"
+      }
+    },
+    "workflow": {
+      "title": "Holat",
+      "current": "Joriy holat: {{status}}",
+      "moveTo": "“{{status}}” deb belgilash",
+      "when": "Qachon (ixtiyoriy)",
+      "whenHint": "Hozirgi vaqt uchun ikkalasini boʻsh qoldiring. Sana DD/MM/YYYY, vaqt HH:mm (24 soat), mahalliy vaqtingiz boʻyicha.",
+      "final": "Bu yakuniy holat.",
+      "undo": "Bekor qilish: “{{status}}” ga qaytarish",
+      "undoTitle": "Oxirgi holat oʻzgarishi bekor qilinsinmi?",
+      "undoBody": "Holat “{{status}}” ga qaytadi va bekor qilingan bosqich sanasi tozalanadi. Bu oʻzgarish tarixga yoziladi.",
+      "changed": "Holat oʻzgardi: {{status}}.",
+      "corrected": "Holat qaytarildi: {{status}}."
+    },
+    "evidence": {
+      "upload": "Dalil qoʻshish",
+      "uploading": "{{name}} yuklanmoqda…",
+      "hint": "Rasmlar (PNG, JPEG, GIF, WebP), PDF, matn va manba kod fayllari, {{size}} MB gacha. HexOps fayllarni hech qachon ochmaydi va ishga tushirmaydi; yuklab olinganda ular doim saqlanadi, koʻrsatilmaydi.",
+      "empty": "Hali dalillar yoʻq.",
+      "download": "{{name}} ni yuklab olish",
+      "remove": "{{name}} ni olib tashlash",
+      "removeTitle": "Bu fayl olib tashlansinmi?",
+      "removeBody": "“{{name}}” serverdan oʻchiriladi.",
+      "uploaded": "{{name}} yuklandi.",
+      "failed": "{{name}}: {{reason}}"
+    },
+    "deleteDialog": {
+      "title": "Bu hisobot oʻchirilsinmi?",
+      "body": "“{{name}}” hisoboti va uning {{count}} ta dalil fayli oʻchiriladi. Tarix saqlanib qoladi. Bu amalni qaytarib boʻlmaydi.",
+      "confirm": "Hisobotni oʻchirish"
+    },
+    "toast": {
+      "created": "Hisobot yaratildi.",
+      "saved": "Oʻzgarishlar saqlandi.",
+      "deleted": "Hisobot oʻchirildi."
+    },
+    "projectSection": {
+      "empty": "Bu loyihada hali hisobotlar yoʻq.",
+      "add": "Bu loyiha uchun yangi hisobot",
+      "viewAll": "Barcha hisobotlar ({{count}})"
+    },
+    "createdFrom": "Yaratilgan sanadan",
+    "createdTo": "Yaratilgan sanagacha"
+  },
+  "editor": {
+    "mode": "Muharrir koʻrinishi",
+    "preview": "Koʻrinish",
+    "empty": "Hali koʻrsatadigan narsa yoʻq.",
+    "hint": "Markdown: # sarlavhalar, **qalin**, `kod`, ```til bloklari, | jadvallar |, [havolalar](https://…).",
+    "characters": "{{count}} / {{max}} belgi",
+    "modes": {
+      "markdown": "Markdown",
+      "split": "Yonma-yon",
+      "preview": "Koʻrinish"
+    },
+    "tabs": {
+      "edit": "Tahrirlash",
+      "preview": "Koʻrinish"
+    }
+  },
+  "unsaved": {
+    "title": "Saqlamasdan chiqilsinmi?",
+    "body": "Saqlanmagan oʻzgarishlar bor. Hozir chiqsangiz, ular yoʻqoladi.",
+    "stay": "Tahrirlashni davom ettirish",
+    "leave": "Saqlamasdan chiqish"
+  },
+  "notes": {
+    "new": "Yangi qayd",
+    "edit": "Qaydni tahrirlash",
+    "search": "Sarlavha va matn boʻyicha qidirish",
+    "searchPlaceholder": "Qaydlarni qidirish…",
+    "filterProject": "Loyiha",
+    "allProjects": "Barcha loyihalar",
+    "filterTag": "Teg",
+    "addTagFilter": "Teg boʻyicha filtr…",
+    "removeTagFilter": "{{tag}} teg filtrini olib tashlash",
+    "sortBy": "Saralash",
+    "clearFilters": "Filtrlarni tozalash",
+    "sort": {
+      "updated_at": "Oxirgi oʻzgarish",
+      "created_at": "Yaratilgan sana",
+      "title": "Sarlavha"
+    },
+    "order": {
+      "asc": "Oʻsish boʻyicha",
+      "desc": "Kamayish boʻyicha"
+    },
+    "fields": {
+      "title": "sarlavha",
+      "body_md": "matn",
+      "project_id": "loyiha",
+      "tags": "teglar"
+    },
+    "noProject": "Loyihasiz",
+    "updated": "Oʻzgartirilgan: {{date}}",
+    "empty": {
+      "title": "Hali qaydlar yoʻq",
+      "body": "Razvedka natijalari, shpargalkalar va vazifalarni Markdown qaydlari sifatida saqlang.",
+      "filteredTitle": "Mos qaydlar topilmadi",
+      "filteredBody": "Boshqa filtrlarni tanlang yoki ularni tozalang."
+    },
+    "form": {
+      "title": "Sarlavha",
+      "project": "Loyiha (ixtiyoriy)",
+      "projectSearch": "Loyihani topish",
+      "tags": "Teglar",
+      "tagsHint": "Qoʻshish uchun Enter yoki vergul. Harflar, raqamlar, “-” va “_”.",
+      "tagPlaceholder": "recon, todo…",
+      "removeTag": "{{tag}} tegini olib tashlash",
+      "body": "Qayd",
+      "create": "Qayd yaratish",
+      "save": "Oʻzgarishlarni saqlash",
+      "saving": "Saqlanmoqda…"
+    },
+    "detail": {
+      "body": "Qayd",
+      "noBody": "Hali matn yoʻq.",
+      "activity": "Harakatlar tarixi",
+      "project": "Loyiha",
+      "tags": "Teglar",
+      "notFound": "Qayd topilmadi",
+      "notFoundBody": "Ehtimol, u oʻchirilgan.",
+      "backToList": "Qaydlar roʻyxatiga qaytish"
+    },
+    "deleteDialog": {
+      "title": "Bu qayd oʻchirilsinmi?",
+      "body": "“{{name}}” qaydi oʻchiriladi. Tarix saqlanib qoladi. Bu amalni qaytarib boʻlmaydi.",
+      "confirm": "Qaydni oʻchirish"
+    },
+    "toast": {
+      "created": "Qayd yaratildi.",
+      "saved": "Oʻzgarishlar saqlandi.",
+      "deleted": "Qayd oʻchirildi."
+    },
+    "projectSection": {
+      "empty": "Bu loyihada hali qaydlar yoʻq.",
+      "add": "Bu loyiha uchun yangi qayd",
+      "viewAll": "Barcha qaydlar ({{count}})"
+    }
+  },
+  "search": {
+    "description": "Hisobot va qaydlarni sarlavha yoki matndagi soʻzlar boʻyicha toping.",
+    "label": "Nimani qidirish",
+    "placeholder": "Soʻzlar, CVE-2024-1234, 10.0.0.5, example.com…",
+    "hint": "Barcha soʻzlar mos kelishi kerak. Ingliz va rus soʻzlari istalgan shaklda topiladi; oʻzbekcha apostroflar shart emas. CVE, IP manzil, domen va URL matnning istalgan joyida qidiriladi.",
+    "kind": "Qayerdan",
+    "kinds": {
+      "all": "Hisobotlar va qaydlar",
+      "report": "Hisobotlar",
+      "note": "Qaydlar"
+    },
+    "tag": "Qayd tegi",
+    "anyTag": "Istalgan teg",
+    "startTitle": "Ish maydonida qidirish",
+    "startBody": "Barcha hisobot va qaydlardan qidirish uchun soʻz, identifikator yoki host kiriting.",
+    "noResults": "Hech narsa topilmadi",
+    "noResultsBody": "Kamroq yoki boshqa soʻzlar bilan urinib koʻring.",
+    "count": "Natijalar: {{count}}"
+  },
+  "pdf": {
+    "failed": "PDF vazifasi bajarilmadi. Qayta urinib koʻring.",
+    "export": {
+      "button": "PDF eksport",
+      "working": "PDF tayyorlanmoqda… {{progress}}%",
+      "download": "PDFni yuklab olish",
+      "ready": "PDF yuklab olishga tayyor."
+    },
+    "import": {
+      "open": "PDF import",
+      "title": "PDF import qilish",
+      "description": "Matnli PDFni Markdown qoralamaga aylantiring, tekshiring va yangi hisobot yoki qayd sifatida saqlang.",
+      "choose": "PDF tanlang",
+      "file": "PDF fayl",
+      "limits": "{{mb}} MB va {{pages}} sahifagacha.",
+      "textOnly": "Faqat matn qatlami bor PDFlar. Skanerlangan (faqat rasm) PDFlar uchun OCR kerak, u hozircha mavjud emas.",
+      "manualCorrection": "Murakkab jadvallar, rasmlar va sahifa tuzilishini qoʻlda tuzatish kerak boʻlishi mumkin.",
+      "neverOverwrites": "Yangi hisobot yoki qayd yaratmaguningizcha hech narsa saqlanmaydi. Mavjud yozuvlar oʻzgartirilmaydi.",
+      "submit": "Markdownga aylantirish",
+      "uploading": "Yuklanmoqda…",
+      "working": "Aylantirilmoqda… {{progress}}%",
+      "reviewTitle": "PDFdan qoralama (sahifalar: {{pages}}). Saqlashdan oldin tekshiring.",
+      "warnings": "Nimani tekshirish kerak",
+      "draft": "Qoralama",
+      "draftTitle": "Sarlavha",
+      "draftBody": "Markdown",
+      "draftHint": "Bemalol tahrirlang. Keyingi qadamda saqlashdan oldin toʻliq forma ochiladi.",
+      "asReport": "Yangi hisobot sifatida davom etish",
+      "asNote": "Yangi qayd sifatida davom etish",
+      "startOver": "Qaytadan boshlash",
+      "fromDraft": "Import qilingan PDFdan. Tekshiring va saqlang.",
+      "pick": "PDF tanlash…",
+      "noFile": "Fayl tanlanmagan"
+    },
+    "warnings": {
+      "pdf_tables_detected": "Jadvallar Markdown jadvallariga aylantirildi. Birlashtirilgan va boʻsh kataklarni tekshiring.",
+      "pdf_images_skipped": "Rasmlar tashlab ketildi. Kerak boʻlsa, skrinshotlarni dalil sifatida biriktiring.",
+      "pdf_pages_without_text": "Baʼzi sahifalarda matn qatlami yoʻq (skanmi?), ular tashlab ketildi."
+    }
+  },
+  "dates": {
+    "date": "Sana",
+    "time": "Vaqt",
+    "placeholder": "DD/MM/YYYY",
+    "timePlaceholder": "HH:mm",
+    "openCalendar": "Sanani kalendardan tanlash",
+    "calendar": "Kalendar",
+    "previousMonth": "Oldingi oy",
+    "nextMonth": "Keyingi oy",
+    "today": "Bugun",
+    "weekdays": [
+      "Du",
+      "Se",
+      "Ch",
+      "Pa",
+      "Ju",
+      "Sh",
+      "Ya"
+    ],
+    "errors": {
+      "date_format": "Sanani DD/MM/YYYY koʻrinishida kiriting, avval kun: 05/06/2026 — bu 2026-yil 5-iyun.",
+      "date_invalid": "Bunday sana mavjud emas (kun va oyni tekshiring).",
+      "time_format": "Vaqtni HH:mm (24 soat) koʻrinishida kiriting, masalan 09:30 yoki 18:05.",
+      "time_required": "Vaqtni ham kiriting (HH:mm).",
+      "date_required": "Sanani ham kiriting (DD/MM/YYYY)."
+    }
+  },
+  "transfer": {
+    "title": "Maʼlumotlarni eksport va import qilish",
+    "description": "Barcha loyihalar, hisobotlar, qaydlar, tarix va dalil fayllari bitta shifrlangan .hexops faylida.",
+    "current": "Ushbu oʻrnatmada: {{projects}} loyiha, {{reports}} hisobot, {{notes}} qayd, {{files}} dalil fayli.",
+    "failed": "Eksport yoki import bajarilmadi. Hech narsa oʻzgarmadi.",
+    "passphrase": "Parol iborasi",
+    "passphraseHint": "Kamida {{min}} belgi. U hech qayerda saqlanmaydi; usiz faylni ochib boʻlmaydi.",
+    "passphraseShort": "Kamida {{min}} belgi ishlating.",
+    "passphraseRepeat": "Parol iborasini takrorlang",
+    "stage": {
+      "queued": "Boshlanishi kutilmoqda…",
+      "export": "Eksport qilinmoqda… {{progress}}%",
+      "check": "Arxiv tekshirilmoqda… {{progress}}%",
+      "backup": "Joriy maʼlumotlar zaxiralanmoqda… {{progress}}%",
+      "files": "Dalil fayllari nusxalanmoqda… {{progress}}%",
+      "database": "Yozuvlar almashtirilmoqda… {{progress}}%",
+      "validated": "Tekshirildi.",
+      "done": "Tayyor."
+    },
+    "export": {
+      "title": "Barcha maʼlumotlarni eksport qilish",
+      "body": "Barcha loyihalar, hisobotlar (status tarixi va mukofot bilan), qaydlar, teglar, tarix yozuvlari va dalil fayllaridan shifrlangan arxiv yaratadi. Hisobingiz va parolingiz kirmaydi.",
+      "keepSafe": "Parol iborasini xavfsiz joyda saqlang. HexOps uni tiklay olmaydi, fayl va ibora ikkalasi bor odam esa barcha maʼlumotlaringizni oʻqiy oladi.",
+      "submit": "Shifrlangan eksport yaratish",
+      "ready": "Eksport tayyor.",
+      "readyDetail": "{{size}}. Uni {{until}} gacha yuklab oling; shundan soʻng fayl serverdan oʻchiriladi.",
+      "download": ".hexops faylini yuklab olish"
+    },
+    "import": {
+      "title": ".hexops faylidan import qilish",
+      "replaces": "Import bu yerdagi barcha yozuvlar va dalillarni arxivdagilar bilan almashtiradi; hech narsa birlashtirilmaydi.",
+      "backupFirst": "Agar bu yerda maʼlumot boʻlsa, avval uning tekshirilgan shifrlangan zaxirasi yaratiladi (data/backups da) va xato boʻlsa hammasi avvalgidek qoladi.",
+      "account": "Arxivda hisoblar yoʻq: yozuvlar siz kirgan hisobga biriktiriladi.",
+      "sameVersion": "Arxiv HexOps’ning shu versiyasidan (maʼlumotlar bazasi sxemasidan) boʻlishi kerak.",
+      "file": "Arxiv fayli",
+      "pick": ".hexops faylini tanlash…",
+      "noFile": "Fayl tanlanmagan",
+      "check": "Arxivni tekshirish",
+      "checkAgain": "Qayta tekshirish",
+      "startOver": "Qaytadan boshlash",
+      "checked": "Arxiv butun va toʻliq.",
+      "source": "{{date}} da {{owner}} tomonidan HexOps {{version}} da yaratilgan.",
+      "compare": "Arxivdagi va hozir bu yerdagi yozuvlar",
+      "kind": "Yozuvlar",
+      "inArchive": "Arxivda",
+      "hereNow": "Hozir bu yerda",
+      "files": "{{count}} ta dalil fayli, {{size}}.",
+      "space": "Kerakli disk joyi: {{needed}} (boʻsh: {{free}}).",
+      "populatedTitle": "Bu oʻrnatmada allaqachon maʼlumot bor.",
+      "populatedBody": "Import ularning hammasini almashtiradi. Avval tekshirilgan zaxira yaratilib, data/backups da saqlanadi.",
+      "understand": "Barcha joriy yozuvlar va dalil fayllari almashtirilishini tushunaman.",
+      "confirmTitle": "Barcha maʼlumotlar almashtirilsinmi?",
+      "confirmBody": "Har bir joriy yozuv va dalil fayli arxivdagisi bilan almashtiriladi. Avval tekshirilgan zaxira yaratiladi.",
+      "replace": "Barcha maʼlumotlarni almashtirish",
+      "apply": "Import qilish",
+      "done": "Import tugadi. Barcha sahifalar import qilingan maʼlumotlarni koʻrsatadi.",
+      "backupKept": "Avvalgi maʼlumotlar {{name}} ga zaxiralandi (xuddi shu ibora bilan shifrlangan).",
+      "another": "Boshqa faylni import qilish"
+    },
+    "kinds": {
+      "projects": "Loyihalar",
+      "project_scope_items": "Scope elementlari",
+      "reports": "Hisobotlar",
+      "report_attachments": "Dalil fayllari",
+      "notes": "Qaydlar",
+      "tags": "Teglar",
+      "activity_logs": "Tarix yozuvlari"
+    }
+  },
+  "account": {
+    "hint": "Kirish uchun nomingiz. Yozuvlar nomga emas, hisobingizga bogʻlangan.",
+    "current": "Joriy foydalanuvchi nomi:",
+    "newUsername": "Yangi foydalanuvchi nomi",
+    "usernameRules": "3–64 belgi: harflar, raqamlar, “.”, “_” va “-”. Katta-kichik harf farqi yoʻq.",
+    "changeUsername": "Foydalanuvchi nomini oʻzgartirish",
+    "signOutNote": "Saqlaganingizdan soʻng barcha qurilmalarda tizimdan chiqasiz; yangi nom va joriy parol bilan kiring.",
+    "save": "Nomni saqlash",
+    "saving": "Saqlanmoqda…",
+    "usernameChanged": "Foydalanuvchi nomi oʻzgartirildi. Yangi nom va joriy parol bilan kiring."
+  }
+}
