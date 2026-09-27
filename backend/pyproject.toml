@@ -44,4 +44,6 @@ ignore = ["B008"]  # FastAPI Depends() in defaults is idiomatic
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101", "S105", "S106"]
+# Installer tests drive fixed local programs (bash, psql, sudo) on throwaway data.
+"tests/installer/*" = ["S101", "S105", "S106", "S603", "S607", "S608"]
 "alembic/versions/*" = ["E501"]  # generated DDL and SQL literals

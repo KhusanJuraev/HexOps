@@ -132,6 +132,42 @@ The installer updates the packages, rebuilds the UI and applies new database
 migrations; your `.env`, account, records and files stay as they are. Back up first
 (*Backup and restore* or Settings → Data) before a big upgrade.
 
+## Uninstall
+
+Two modes; pick one explicitly. Add `--dry-run` (`-DryRun`) first to see exactly which
+processes, database objects and paths are affected — nothing is changed.
+
+```bash
+./uninstall-linux.sh --remove-app            # remove the application, keep your data
+./uninstall-linux.sh --purge --export ~/hexops-final.hexops   # delete everything, after an export
+```
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\uninstall-windows.ps1 -RemoveApp
+powershell -ExecutionPolicy Bypass -File .\uninstall-windows.ps1 -Purge -ExportPath "$HOME\hexops-final.hexops"
+```
+
+- **Remove the application** stops this folder's HexOps processes and deletes the
+  application files. `backend/.env`, `data/` (evidence, backups) and the PostgreSQL
+  database stay; to reinstall, put a fresh copy into the same folder and run the installer.
+- **Purge** also drops the database and role named in `backend/.env` and deletes
+  `backend/.env` and `data/`. It always asks you to type `DELETE HEXOPS` (`--yes`/`-Yes`
+  does not count). `--export FILE` (`-ExportPath`) first saves an encrypted `.hexops` file,
+  outside the folder, that Settings → Data → Import can restore; it asks for a passphrase.
+  On Windows it asks for the PostgreSQL administrator's password; on Linux it uses
+  `sudo -u postgres psql` (or `HEXOPS_PG_ADMIN`).
+- Refused, with nothing changed: a database on another computer, a database with tables
+  HexOps did not create, a role that owns or uses anything else, or anything else
+  connected to the database.
+- Only processes whose program is in this folder are stopped — never "whatever uses port
+  8000". Python, Node.js, PostgreSQL, other databases, browsers and the shared Playwright
+  cache (`~/.cache/ms-playwright`, `%LOCALAPPDATA%\ms-playwright`) are never touched. Files
+  in the folder that are not part of HexOps are listed and left in place.
+- Windows: if the window you ran it from is still inside the folder, Windows keeps the
+  (then empty) folder; the script tells you the one command to remove it afterwards.
+  `uninstall-windows.ps1` has been checked on Linux (PowerShell 7) only — **not yet run
+  on Windows**.
+
 ## Manual setup (developers)
 
 The installers do all of this; these are the individual steps, e.g. for development
