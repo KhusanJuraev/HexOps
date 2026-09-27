@@ -47,6 +47,9 @@ try {
   Write-Host "ERROR: $($_.Exception.Message)" -ForegroundColor Red
   exit 1
 } finally {
+  # taskkill reports an already-exited process on stderr; Windows PowerShell 5.1 would
+  # turn that into a terminating error under "Stop", so only its exit code matters here.
+  $ErrorActionPreference = "Continue"
   foreach ($proc in @($api, $ui)) {
     if ($proc -and -not $proc.HasExited) { & taskkill /PID $proc.Id /T /F 2>$null | Out-Null }
   }

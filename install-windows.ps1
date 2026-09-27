@@ -50,13 +50,48 @@ function Fail([string]$Message, [string[]]$Hints = @()) {
   Write-Host "HexOps was NOT installed completely (failed at: $script:Step)." -ForegroundColor Red
   exit 1
 }
+# Native programs are judged by their exit code, never by writing to stderr. Windows
+# PowerShell 5.1 turns redirected stderr lines into error records, and with
+# $ErrorActionPreference = "Stop" the first one ends the script (pip, alembic and the
+# "py" launcher all write to stderr). So both helpers relax it for their own call only.
+
 # Run a native program; fail with $Message unless it exits with 0.
 function Invoke-Checked([string]$Message, [scriptblock]$Block, [string[]]$Hints = @()) {
+  $ErrorActionPreference = "Continue"
   & $Block
   if ($LASTEXITCODE -ne 0) { Fail $Message $Hints }
 }
+# Run a native program whose failure is an expected answer (a missing Python version, a
+# busy port). Returns its stdout and exit code; stderr is discarded; never throws.
+function Invoke-Probe([string]$Exe, [string[]]$Arguments = @()) {
+  $ErrorActionPreference = "Continue"
+  $global:LASTEXITCODE = 0
+  try {
+    $out = & $Exe @Arguments 2>$null
+    $code = $LASTEXITCODE
+  } catch {
+    $out = $null; $code = 1
+  }
+  return [pscustomobject]@{ Output = @($out); ExitCode = $code }
+}
 function Test-VersionAtLeast([string]$Have, [string]$Need) {
   return ([version]$Have) -ge ([version]$Need)
+}
+# The first interpreter that exists and is 3.12 or newer. Tested versions come first;
+# a missing one (py: "No runtime installed that matches 3.13") just moves on.
+function Find-HexopsPython {
+  $candidates = @(@("py", "-3.13"), @("py", "-3.12"), @("py", "-3"), @("python"))
+  foreach ($candidate in $candidates) {
+    $exe = $candidate[0]
+    $extra = @($candidate | Select-Object -Skip 1)
+    if (-not (Get-Command $exe -ErrorAction SilentlyContinue)) { continue }
+    $probe = Invoke-Probe $exe ($extra + @("-c", "import sys; print('%d.%d' % sys.version_info[:2])"))
+    $v = ($probe.Output | Select-Object -Last 1)
+    if ($probe.ExitCode -eq 0 -and "$v" -match '^\d+\.\d+$' -and (Test-VersionAtLeast $v "3.12")) {
+      return [pscustomobject]@{ Exe = $exe; Args = $extra; Version = "$v" }
+    }
+  }
+  return $null
 }
 
 trap {
@@ -70,23 +105,14 @@ trap {
 $script:Step = "checking prerequisites"
 Say "Checking prerequisites"
 
-$Python = $null
-$PythonArgs = @()
-foreach ($candidate in @(@("py", "-3.13"), @("py", "-3.12"), @("python"))) {
-  $exe = $candidate[0]
-  $extra = @($candidate | Select-Object -Skip 1)
-  if (Get-Command $exe -ErrorAction SilentlyContinue) {
-    $v = & $exe @extra -c "import sys; print('%d.%d' % sys.version_info[:2])" 2>$null
-    if ($LASTEXITCODE -eq 0 -and $v -and (Test-VersionAtLeast $v "3.12")) {
-      $Python = $exe; $PythonArgs = $extra; break
-    }
-  }
-}
-if (-not $Python) {
+$Found = Find-HexopsPython
+if (-not $Found) {
   Fail "Python 3.12 or newer was not found" @(
     "Install it:  winget install Python.Python.3.12   (or from https://www.python.org/)",
     "Then open a NEW PowerShell window and run this installer again.")
 }
+$Python = $Found.Exe
+$PythonArgs = $Found.Args
 Info ("Python  " + (& $Python @PythonArgs -c "import platform; print(platform.python_version())"))
 
 if (-not (Get-Command node -ErrorAction SilentlyContinue) -or -not (Get-Command npm -ErrorAction SilentlyContinue)) {
@@ -179,8 +205,7 @@ $UiPort = [int](Get-EnvValue "HEXOPS_UI_PORT" "4173")
 $script:Step = "installing the backend"
 Say "Backend (Python virtual environment)"
 if ((Test-Path $VenvPython)) {
-  & $VenvPython -c "import sys" 2>$null
-  if ($LASTEXITCODE -ne 0) { Info "The existing virtual environment is broken (moved folder?) - recreating it."; Remove-Item -Recurse -Force $Venv }
+  if ((Invoke-Probe $VenvPython @("-c", "import sys")).ExitCode -ne 0) { Info "The existing virtual environment is broken (moved folder?) - recreating it."; Remove-Item -Recurse -Force $Venv }
 }
 if (-not (Test-Path $VenvPython)) { Invoke-Checked "could not create the virtual environment" { & $Python @PythonArgs -m venv $Venv } }
 Invoke-Checked "pip upgrade failed" { & $VenvPython -m pip install --quiet --upgrade pip }
@@ -205,7 +230,7 @@ try {
   Info "Connected."
   $script:Step = "running database migrations"
   Invoke-Checked "database migration failed (nothing was dropped)" { & (Join-Path $Venv "Scripts\alembic.exe") upgrade head 2>&1 | Out-Null }
-  Info ("Schema is up to date (" + ((& (Join-Path $Venv "Scripts\alembic.exe") current 2>$null) | Select-Object -Last 1) + ").")
+  Info ("Schema is up to date (" + ((Invoke-Probe (Join-Path $Venv "Scripts\alembic.exe") @("current")).Output | Select-Object -Last 1) + ").")
 } finally { Pop-Location }
 
 # --- 5. frontend ----------------------------------------------------------------------------------------
@@ -224,8 +249,7 @@ if (-not $SkipStartCheck) {
   $script:Step = "starting HexOps for a check"
   Say "Starting HexOps briefly to check it"
   foreach ($p in @($ApiPort, $UiPort)) {
-    & $Python @PythonArgs $Helper port-free "$p" 2>$null
-    if ($LASTEXITCODE -ne 0) { Fail "port $p is already in use (is HexOps already running?)" @("Stop it first, or use -SkipStartCheck.") }
+    if ((Invoke-Probe $Python ($PythonArgs + @($Helper, "port-free", "$p"))).ExitCode -ne 0) { Fail "port $p is already in use (is HexOps already running?)" @("Stop it first, or use -SkipStartCheck.") }
   }
   $logDir = Join-Path ([System.IO.Path]::GetTempPath()) ("hexops-install-" + [guid]::NewGuid().ToString("N"))
   New-Item -ItemType Directory -Path $logDir | Out-Null
@@ -244,7 +268,7 @@ if (-not $SkipStartCheck) {
     Info "API health: OK   UI: OK   UI -> API proxy: OK"
   } finally {
     foreach ($proc in @($api, $ui)) {
-      if ($proc -and -not $proc.HasExited) { & taskkill /PID $proc.Id /T /F 2>$null | Out-Null }
+      if ($proc -and -not $proc.HasExited) { Invoke-Probe "taskkill" @("/PID", "$($proc.Id)", "/T", "/F") | Out-Null }
     }
     Remove-Item Env:\HEXOPS_API_URL -ErrorAction SilentlyContinue
     Remove-Item -Recurse -Force $logDir -ErrorAction SilentlyContinue

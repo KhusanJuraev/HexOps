@@ -4,7 +4,8 @@ A private, local-first workspace for security research: projects, reports and
 Markdown notes, running on your own machine and bound to `127.0.0.1` by default.
 
 **Status:** early open-source release. Linux installation is tested (Debian 13); the
-Windows installer has passed static checks only and has **not** been run on Windows.
+Windows installer is **not fully verified on Windows**: it passes static checks and its
+own tests, but no complete installation on Windows has been confirmed yet.
 What works:
 - sign-in, first-run setup, password and username change;
 - the app shell, three languages (Oʻzbekcha / Русский / English) and three themes
@@ -69,11 +70,13 @@ git clone https://github.com/KhusanJuraev/HexOps.git hexops && cd hexops
   postgresql`. If Chromium cannot start, run once:
   `sudo backend/.venv/bin/python -m playwright install-deps chromium`.
 
-## Install — Windows 10/11 (PowerShell) — not yet run on Windows
+## Install — Windows 10/11 (PowerShell) — not fully verified on Windows
 
 > `install-windows.ps1` was checked on Linux (PowerShell 7 parser and PSScriptAnalyzer,
-> PowerShell 5.1 syntax rules) but **has not been run on Windows yet**. Please report
-> problems.
+> PowerShell 5.1 syntax rules). Its Python detection is covered by
+> `scripts/test-install-windows.ps1`. A first run on Windows found a Python detection
+> bug, now fixed; a complete installation on Windows **has not been confirmed yet**.
+> Please report problems.
 
 1. Install the prerequisites, then open a **new** PowerShell window:
 
