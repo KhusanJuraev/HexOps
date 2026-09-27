@@ -42,6 +42,10 @@ cookies.txt
 session*.json
 storageState*.json
 
+# Installer temporary files (normally in the system temp folder)
+hexops-browser-*/
+playwright-download-*
+
 # Test artifacts
 coverage/
 .coverage

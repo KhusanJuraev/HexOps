@@ -575,6 +575,8 @@ Windows.**
 | Installer: "role 'hexops' already exists" | A previous install created it; the installer does not know its password. Use `--database-url` (`-DatabaseUrl`) with that password, or the existing `backend/.env`. |
 | Installer: "cannot connect to PostgreSQL" | Start the service (`sudo systemctl start postgresql`; Windows: Services → postgresql) and check the URL in `backend/.env`. |
 | Windows: "running scripts is disabled" | Use `powershell -ExecutionPolicy Bypass -File .\install-windows.ps1` (this command only); do not change the system policy. |
+| Installer: PDF renderer download "timed out" | Nothing to do by hand: when Playwright's own download fails, the installer downloads the same official archives with `curl` (`curl.exe` on Windows), checks them, and lets Playwright install them from `127.0.0.1`. It prints what it observed (whether Playwright's Node.js and curl can each reach the download server). |
+| Installer: "Could not install the PDF renderer" | The fallback failed too. Your database, `backend/.env` and data are unchanged — run the installer again; finished parts are not downloaded again. If it keeps failing, allow outbound HTTPS (port 443) for the programs named in the message in your firewall or antivirus, or set `HTTPS_PROXY` if your network requires a proxy. |
 | Setup page does not appear | An account already exists (then sign in, or reset its password with the CLI), or you are not on the same computer (setup is loopback-only). |
 
 ## Extending HexOps

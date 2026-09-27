@@ -214,7 +214,9 @@ Info "Backend packages installed."
 
 $script:Step = "installing the PDF renderer (Chromium)"
 Say "PDF renderer (Chromium, ~100 MB, once)"
-Invoke-Checked "downloading Chromium failed" { & $VenvPython -m playwright install --only-shell chromium | Out-Null }
+# Playwright's download first; if it fails, the helper downloads the same official archives
+# with curl.exe, verifies them and hands them to Playwright from 127.0.0.1 (D-94).
+Invoke-Checked "the PDF renderer could not be installed (see the messages above)" { & $VenvPython $Helper install-browser }
 Push-Location $Backend
 try { Invoke-Checked "Chromium was downloaded but cannot print a PDF" { & $VenvPython $Helper check-pdf } }
 finally { Pop-Location }

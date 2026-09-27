@@ -179,7 +179,10 @@ info "Backend packages installed."
 
 STEP="installing the PDF renderer (Chromium)"
 say "PDF renderer (Chromium, ~100 MB, once)"
-"$VENV/bin/python" -m playwright install --only-shell chromium >/dev/null
+# Playwright's download first; if it fails, the helper downloads the same official archives
+# with curl, verifies them and hands them to Playwright from 127.0.0.1 (D-94).
+"$VENV/bin/python" "$HELPER" install-browser \
+  || fail "the PDF renderer could not be installed (see the messages above)"
 if ! (cd "$BACKEND" && "$VENV/bin/python" "$HELPER" check-pdf); then
   fail "Chromium was downloaded but cannot start (often: missing system libraries)" \
     "Install them once with:  sudo $VENV/bin/python -m playwright install-deps chromium" \
